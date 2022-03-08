@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="chips" appearance="fill">
+    <mat-label>Keywords</mat-label>
+    <mat-chip-list #chipList >
+      <mat-chip
+        *ngFor="let keyword of keywords"
+        [value]="keyword"
+        (removed)="removeKeyword(keyword.keywordId)">
+        {{keyword.text}}
+       
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New keyword..."
+        [matChipInputFor]="chipList"
+        (matChipInputTokenEnd)="addKeywordFromInput($event)">
+
+        <label class="displayError" >{{errorMessage}}</label>
+    </mat-chip-list>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="justify-content: center">
+  <button mat-button mat-dialog-close mat-raised-button> Close</button>
+</div>

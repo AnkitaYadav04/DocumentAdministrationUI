@@ -1,0 +1,18 @@
+
+<div style="background: lightgray">
+  <h1>Document Administration</h1>
+</div>
+
+<div class="container">
+
+
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Enter Keyword</mat-label>
+    <input matInput type="text" [(ngModel)]="keyWordQuery" (keyup)="onSearch()">
+    <button *ngIf="keyWordQuery" matSuffix mat-icon-button aria-label="Clear" (click)="keyWordQuery='';onSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <app-grid></app-grid>
+</div>
